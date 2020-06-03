@@ -1,0 +1,38 @@
+body{
+    background-image: url(https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg);
+    color:rgb(179, 118, 118);
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;  
+}
+
+h1{border-style:outset;
+    color: rgba(117, 13, 13, 0.623);
+    background-color:rgb(179, 118, 118);
+}
+
+h3{text-decoration: underline;}
+
+p{text-align: center;
+    text-underline-position: above;  
+}
+
+
+#list{border: 2px solid rgb(179, 118, 118);
+    border-radius: 12px;
+    width: 400px;
+    border-width: 5px;
+    margin: auto;
+
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.link{color: rgb(55, 150, 118);
+    text-shadow: 2px 2px 5px rgb(6, 12, 102);
+}
