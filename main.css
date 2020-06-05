@@ -1,16 +1,18 @@
 
 h1, h2, h3{
     color:rgb(189, 82, 43);
-    font-family: 'Pacifico', cursive;
-    background-color: #733636d5;
-    padding-left: 20px;
-    padding-right: 20px;
-
+    
     border-left-style: solid;
     border-left-width: 20px;
     border-left-color: rgba(242, 103, 53, 0.85);
-    background-color: #733636be;
+    font-family: 'Pacifico', cursive;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+    background-color: #733636d5;
+    
 }
+    
 
 h2, h3{
     display: block;
@@ -31,7 +33,6 @@ h1{
     padding-bottom: 2%;
     font-size: 100px;
     border-left-width: 40px;
-    background-color: #733636be;
     text-shadow: 10px 10px #733636;
     
 }
@@ -141,6 +142,7 @@ img{
     font-size: 15px;
     position: absolute;
     top: 50%;
+    font-family: 'Rubik', sans-serif;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -166,6 +168,7 @@ ul {
     display: block;
     color: rgba(160, 69, 36, 0.85);
     text-align: center;
+    font-family: 'Rubik', sans-serif;
     padding: 14px 16px;
     text-decoration: none;
     font-weight: normal;
