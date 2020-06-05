@@ -72,7 +72,7 @@ p{
 .link{
     text-decoration: none;
     font-weight: 500;
-    color: rgb(238, 87, 0);
+    color: rgb(240, 112, 38);
 }
 
 .link:hover{
@@ -85,6 +85,12 @@ img{
     margin-right: auto;
     width: 15%;
     border-radius: 15px;
+}
+
+.thumbnail{
+    display: inline-block;
+    height: auto;
+    width: 200%;
 }
 
 /*Photo Tools------------*/
