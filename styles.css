@@ -225,6 +225,10 @@ h3 {
     margin-top: 1em;
 }
 
+#project-gallery p.bio{
+
+    font-size: 4vw;
+}
 
 /*
     Start Making media Queries for Desktop, Will Do Tablet later
@@ -398,6 +402,11 @@ h3 {
     #project-gallery p{
 
         font-size: 1.5vw;
+    }
+
+    #project-gallery p.bio{
+
+        font-size: 2vw;
     }
     
     h3 {
