@@ -223,6 +223,7 @@ h3 {
 #end-toast {
     margin-left: 0em;
     margin-top: 1em;
+    
 }
 
 #project-gallery p.bio{
@@ -287,7 +288,7 @@ h3 {
 
     
     .title-card {
-        font-size: 2.5vw;
+        font-size: 2vw;
         margin-top: 1em;
         margin-bottom: 1em;
         margin: auto;
@@ -341,7 +342,7 @@ h3 {
     
     h2.alt-toast {
         display: block;
-        font-size: 2vw;
+        font-size: 1.5vw;
         margin: auto;
         width: 90%;
         text-align: center;
@@ -392,7 +393,7 @@ h3 {
     }
 
     #project-gallery .title-card{
-        font-size: 1.8vw;
+        font-size: 1.4vw;
         width: 100%;
         margin-top: 1em;
       
@@ -419,8 +420,9 @@ h3 {
         background-color: rgba(211,192,171,1);
         color: rgb(51,51,51);
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.95), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
-       
+        align-self: flex-start;
         margin-bottom: 1em;
+        margin-top: 0em;
         padding: 0.5em;
     }
     
@@ -428,8 +430,12 @@ h3 {
         background-color: rgb(51,51,51);
         color: rgba(211,192,171,1);
         box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.95), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
         border-radius: 0.5em;
+        
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        
         margin: 0.5em;
         height: auto;
         width: 40%;
@@ -441,13 +447,14 @@ h3 {
     .thumb-wrapper {
         width: 100%;
         height: auto;
-        margin-bottom: 0em;
+        margin-bottom: 1em;
         margin: auto;
         
     }
     
     .thumbnail {
         width: 90%;
+
         border-radius: 0.25em;
         border: 0.05em solid rgba(211,192,171,1);
         box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.95), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -478,7 +485,9 @@ h3 {
         display: block;
         margin-left: 0em;
         margin-top: 1em;
-        margin-bottom: 1em;;
+        margin-bottom: 1em;
+        font-size: 3vw;
+       
     }
 
 }
