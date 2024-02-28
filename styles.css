@@ -1,0 +1,200 @@
+/* Local Variables */
+
+:root {
+	/* TODO: Remove all instances & clear unused vars */
+	--old-primary-color: rgb(215, 141, 57);
+	--old-primary-color-dark: rgb(147, 86, 16);
+	--old-secondary-color: rgb(52, 52, 52);
+	--white: rgb(255, 255, 255);
+
+	--primary-color: rgb(213, 105, 70);
+	--primary-color-dark: rgb(136, 58, 32);
+	--secondary-color: rgb(39, 40, 61);
+	--tertiary-color: rgb(103, 198, 144);
+	--off-white: rgb(244, 241, 224);
+}
+
+/* Imported Fonts */
+
+.anta-regular {
+	font-family: "Anta", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+}
+
+.montserrat-subheading {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* Default Overrides */
+
+html {
+	font-size: 12px; /* default font-size for document */
+}
+
+h1 {
+	font-size: 8rem;
+	text-shadow: 10px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+	font-size: 4rem;
+	margin-right: 15%;
+	text-shadow: 5px 2px 1px rgba(0, 0, 0, 0.5);
+	color: var(--tertiary-color);
+}
+
+h3 {
+	font-size: 2.5rem;
+	margin-right: 10%;
+	margin-top: 5%;
+	text-shadow: 5px 2px 1px rgba(0, 0, 0, 0.5);
+	color: var(--tertiary-color);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--secondary-color);
+	width: 100vw;
+	height: 100vh;
+}
+
+#container {
+	display: flex;
+	height: 99vh;
+}
+
+#navbar {
+	flex: 0 0 15%; /* Don't grow, don't shrink, base width is 12.5% of the container */
+}
+
+#page-content {
+	flex: 1; /* Grow to take up the rest of the space */
+	text-align: right;
+	margin: auto;
+	color: var(--off-white);
+	/* color: var(--primary-color); */
+}
+
+/* Custom name container with offset  */
+#name-container {
+	width: 80%;
+	margin-right: 10%;
+	margin-left: auto; /* center the container */
+}
+
+#name-container h1:first-child {
+	text-align: left;
+	margin: 0;
+}
+#name-container h1:last-child {
+	text-align: right;
+	margin: 0;
+}
+
+/* -------------- Responsive Styles */
+@media screen and (min-width: 800px) {
+	h1 {
+		font-size: 9rem;
+	}
+
+	h3 {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	html {
+		font-size: 14px;
+	}
+
+	#navbar {
+		flex: 0 0 10%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	html {
+		font-size: 16px;
+	}
+
+	#name-container {
+		width: 65%;
+	}
+}
+
+@media screen and (min-width: 1700px) {
+	html {
+		font-size: 20px;
+	}
+
+	h3 {
+		font-size: 3.5rem;
+	}
+}
+
+@media screen and (min-width: 1900px) {
+	html {
+		font-size: 24px;
+	}
+}
+
+@media screen and (min-width: 2250px) {
+	html {
+		font-size: 28px;
+	}
+}
+
+/* -------------- Background text scroll */
+@keyframes scroll {
+	0% {
+		transform: translate(1%, -2.5%);
+	}
+	100% {
+		transform: translate(-10%, -10%);
+	}
+}
+
+#background-text {
+	position: fixed;
+	width: 300%; /* Adjusted */
+	height: 300%; /* Adjusted */
+	overflow: hidden; /* Adjusted */
+	z-index: -1; /* Ensure the text is behind other content */
+	animation: scroll 30s linear infinite; /* Apply the scrolling animation */
+}
+
+#background-text p {
+	font-size: 3.5rem; /* Adjust as needed */
+	color: rgba(255, 255, 255, 0.041); /* Adjust as needed */
+}
+
+/* Background text Colors */
+
+.violet {
+	color: rgba(198, 22, 128, 0.15);
+}
+
+.blue {
+	color: rgba(75, 216, 255, 0.15);
+}
+
+.yellow {
+	color: rgba(255, 255, 213, 0.15);
+}
+
+.green {
+	color: rgba(0, 255, 72, 0.15);
+}
+
+.orange {
+	color: rgba(255, 165, 0, 0.15);
+}
+
+.purple {
+	color: rgba(128, 0, 128, 0.15);
+}
