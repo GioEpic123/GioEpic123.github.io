@@ -1,17 +1,12 @@
 /* Local Variables */
 
 :root {
-	/* TODO: Remove all instances & clear unused vars */
-	--old-primary-color: rgb(215, 141, 57);
-	--old-primary-color-dark: rgb(147, 86, 16);
-	--old-secondary-color: rgb(52, 52, 52);
-	--white: rgb(255, 255, 255);
-
 	--primary-color: rgb(213, 105, 70);
 	--primary-color-dark: rgb(136, 58, 32);
 	--secondary-color: rgb(39, 40, 61);
 	--tertiary-color: rgb(103, 198, 144);
 	--off-white: rgb(244, 241, 224);
+	--minty-glass: rgba(0, 255, 72, 0.08);
 }
 
 /* Imported Fonts */
@@ -29,22 +24,43 @@
 	font-style: normal;
 }
 
-/* Default Overrides */
+/* --------- Default Overrides */
 
 html {
 	font-size: 12px; /* default font-size for document */
 }
 
+/* Title (Name) */
 h1 {
 	font-size: 8rem;
 	text-shadow: 10px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
+/* Sub-titles (Other Pages) */
 h2 {
+	position: relative;
+	padding: 1%;
 	font-size: 5rem;
 	margin-right: 10%;
+	margin-left: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: 20%;
 	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
 	color: var(--off-white);
+	/* overflow: hidden; add this line to clip the pseudo-element to the h2 element's box */
+}
+
+h2::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+	height: 70%;
+	background-color: rgb(213, 105, 70);
+	transform: skewX(-400deg); /* adjust this value to control the skew */
+	z-index: -1; /* put the pseudo-element behind the text */
 }
 
 h3 {
@@ -52,7 +68,6 @@ h3 {
 	margin-right: 10%;
 	margin-top: 5%;
 	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
-	color: var(--tertiary-color);
 }
 
 body {
@@ -63,7 +78,9 @@ body {
 	height: 100vh;
 }
 
-#container {
+/* --------- Reusable Components */
+
+#main-container {
 	display: flex;
 	height: 99vh;
 }
@@ -79,23 +96,6 @@ body {
 	color: var(--off-white);
 	/* color: var(--primary-color); */
 }
-
-/* Custom name container with offset  */
-#name-container {
-	width: 80%;
-	margin-right: 10%;
-	margin-left: auto; /* center the container */
-}
-
-#name-container h1:first-child {
-	text-align: left;
-	margin: 0;
-}
-#name-container h1:last-child {
-	text-align: right;
-	margin: 0;
-}
-
 /* -------------- Responsive Styles */
 @media screen and (min-width: 800px) {
 	h1 {
@@ -146,7 +146,7 @@ body {
 /* -------------- Background text scroll */
 @keyframes scroll {
 	0% {
-		transform: translate(1%, -2.5%);
+		transform: translate(0%, -2.5%);
 	}
 	100% {
 		transform: translate(-10%, -10%);
@@ -193,6 +193,31 @@ body {
 	color: rgba(128, 0, 128, 0.15);
 }
 
+/* -------------- Page-specific Styles */
+
+/* Home Page */
+
+/* Custom name container with offset  */
+#name-container {
+	width: 80%;
+	margin-right: 10%;
+	margin-left: auto; /* center the container */
+}
+
+#name-container h1:first-child {
+	text-align: left;
+	margin: 0;
+}
+#name-container h1:last-child {
+	text-align: right;
+	margin: 0;
+}
+
+/* Tagline */
+#tagline {
+	color: var(--tertiary-color);
+}
+
 /* About Page */
 
 #about-content {
@@ -213,7 +238,7 @@ body {
 	/* margin-left: 5%; */
 	position: relative;
 	right: -5%; /* add this line to move the image to the right */
-	margin-top: -12%;
+	margin-top: -10%;
 	z-index: 1; /* add this line to make the image overlap the text box */
 
 	border: 20px solid var(--primary-color);
@@ -233,7 +258,7 @@ body {
 	border: 10px solid var(--tertiary-color);
 	background-color: var(--secondary-color);
 	color: white;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	margin-right: 5%;
 	padding: 5%;
 	padding-left: 8%;
@@ -244,6 +269,36 @@ body {
 }
 
 #about-text p {
+	text-align: left;
+	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
+	line-height: 1.5; /* adds space between lines of text */
+	margin-bottom: 2em; /* adds space after the paragraph */
+}
+
+/* Projects Page */
+
+#project-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#project-box {
+	flex: 4;
+	border: 10px solid var(--tertiary-color);
+	background-color: var(--secondary-color);
+	color: white;
+	font-size: 1.2rem;
+	margin-right: 5%;
+	padding: 5%;
+	padding-left: 8%;
+	padding-bottom: 0;
+	position: relative;
+	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
+	/* Red inset border: inset 0 0 0 5px var(--primary-color); */
+}
+
+#project-box p {
 	text-align: left;
 	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
 	line-height: 1.5; /* adds space between lines of text */
