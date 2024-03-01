@@ -14,6 +14,10 @@
 		<!-- Google Fonts -->
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Anta&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+			/* Hide background text if no styles */
+			#background-text {
+				display: none;
+			}
 		</style>
 
 		<!-- Styles -->
@@ -28,11 +32,7 @@
 			</p>
 		<![endif]-->
 
-		<div id="background-text">
-			<!-- Floating text Background generated through js -->
-			<p class="montserrat-subheading"></p>
-		</div>
-		<div id="main-container">
+		<main>
 			<!-- Dynamic Navbar (using navbar.html) injected through js-->
 			<div id="navbar"></div>
 			<div id="page-content">
@@ -44,6 +44,10 @@
 					// iOS, Full-Stack, and Game Enthusiast!
 				</h3>
 			</div>
+		</main>
+		<div role="presentation" aria-hidden="true" id="background-text">
+			<!-- Floating text Background generated through js -->
+			<p class="montserrat-subheading"></p>
 		</div>
 		<script src="script.js" async defer></script>
 	</body>

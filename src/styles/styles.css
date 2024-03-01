@@ -77,7 +77,7 @@ body {
 
 /* --------- Reusable Components */
 
-#main-container {
+main {
 	display: flex;
 	height: 99vh;
 }
@@ -143,14 +143,15 @@ body {
 /* -------------- Background text scroll */
 @keyframes scroll {
 	0% {
-		transform: translate(0%, -2.5%);
+		transform: translate(0%, -35%);
 	}
 	100% {
-		transform: translate(-10%, -10%);
+		transform: translate(-10%, -40%);
 	}
 }
 
 #background-text {
+	display: block;
 	position: fixed;
 	width: 300%; /* Adjusted */
 	height: 300%; /* Adjusted */

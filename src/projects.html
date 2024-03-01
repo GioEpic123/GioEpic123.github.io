@@ -14,6 +14,10 @@
 		<!-- Google Font -->
 		<style>
 			@import url("https://fonts.googleapis.com/css2?family=Anta&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+			/* Hide background text if no styles */
+			#background-text {
+				display: none;
+			}
 		</style>
 
 		<!-- Styles -->
@@ -29,11 +33,7 @@
 		<![endif]-->
 
 		<!-- Dynamic Navbar (using navbar.html) -->
-		<div id="background-text">
-			<!-- Floating text Background generated through js -->
-			<p class="montserrat-subheading"></p>
-		</div>
-		<div id="main-container">
+		<main>
 			<div id="navbar"></div>
 			<div id="page-content">
 				<h2 class="montserrat-subheading">Projects</h2>
@@ -76,6 +76,10 @@
 				<!-- TODO: Hook arrow up to JS -->
 				<div class="arrow right"></div>
 			</div>
+		</main>
+		<div role="presentation" aria-hidden="true" id="background-text">
+			<!-- Floating text Background generated through js -->
+			<p class="montserrat-subheading"></p>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
