@@ -18,23 +18,31 @@ function findCurrentPage() {
 window.onload = function () {
 	var navbar = document.getElementById("navbar");
 
-	fetch("components/navbar.html")
-		.then((response) => response.text())
-		.then((data) => {
-			// -- Inject the navbar into the navbar div
-			navbar.innerHTML = data;
+	var navbarHTML = sessionStorage.getItem("navbar");
+	if (!navbarHTML) {
+		fetch("components/navbar.html")
+			.then((response) => response.text())
+			.then((data) => {
+				sessionStorage.setItem("navbar", data);
+				navbarHTML = data;
+			});
+	} else {
+		console.log("Navbar already in session storage");
+		console.log(navbarHTML);
+	}
 
-			// -- Set active tab to the navbar
-			// Remove old active tab
-			var previousActiveTab = document.getElementById("active-tab");
-			if (previousActiveTab) {
-				previousActiveTab.removeAttribute("id");
-			}
-			// Add the id to the current active tab
-			var currentActiveTab =
-				document.querySelectorAll("nav ul li")[currentPage];
-			currentActiveTab.id = "active-tab";
-		});
+	// Inject the navbar into the navbar div
+	navbar.innerHTML = navbarHTML;
+
+	// Set active tab to the navbar
+	// Remove old active tab
+	var previousActiveTab = document.getElementById("active-tab");
+	if (previousActiveTab) {
+		previousActiveTab.removeAttribute("id");
+	}
+	// Add the id to the current active tab
+	var currentActiveTab = document.querySelectorAll("nav ul li")[currentPage];
+	currentActiveTab.id = "active-tab";
 };
 
 // --- Background Scrolling Text
@@ -105,7 +113,12 @@ function generateScrollingText() {
 // Actually generate text & colorize
 const p = document.querySelector("#background-text p");
 if (p) {
-	p.innerHTML = generateScrollingText();
+	var scrollingText = sessionStorage.getItem("scrollingText");
+	if (!scrollingText) {
+		var scrollingText = generateScrollingText();
+		sessionStorage.setItem("scrollingText", scrollingText);
+	}
+	p.innerHTML = scrollingText;
 }
 
 // --- Scroll Transition (WIP, needs additional scrollable content)
