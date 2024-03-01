@@ -286,18 +286,20 @@ main {
 
 	width: 80vw;
 
-	margin: 2% auto 0 auto;
-	padding-top: 10%;
+	margin: 12% auto 0 auto;
+	padding-top: 2%;
 	box-sizing: border-box;
-	z-index: -3;
+	z-index: 1;
 
 	/* TODO: Decide on these items (need to adjust z index to work) */
-	/* border: 10px solid var(--primary-color); */
-	/* background-color: var(--secondary-color); */
+	/* border: 2px solid var(--off-white); */
+	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
+	background-color: var(--minty-glass);
+	backdrop-filter: blur(10px);
 
 	/* Scrollbar */
 	scrollbar-width: auto;
-	scrollbar-color: var(--primary-color) var(--off-white);
+	scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0);
 }
 
 .project-box {
@@ -316,7 +318,7 @@ main {
 	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
 	color: white;
 	font-size: 1.2rem;
-	z-index: -2;
+	z-index: 2;
 }
 
 .project-box h3 {
@@ -340,7 +342,7 @@ main {
 	height: 70%;
 	background-color: var(--primary-color-dark);
 	transform: skewX(-400deg); /* adjust this value to control the skew */
-	z-index: -1; /* put the pseudo-element behind the text */
+	z-index: -3; /* put the pseudo-element behind the text */
 }
 
 #project-content .project-box:first-child {
@@ -350,22 +352,27 @@ main {
 .arrow {
 	width: 0;
 	height: 0;
-	border-style: solid;
-	position: absolute;
+
+	position: sticky;
 	top: 50%;
+	z-index: 1;
+
+	border-style: solid;
 	visibility: visible;
 }
 
 .arrow.left {
-	border-width: 20px 20px 20px 30px;
-	border-color: transparent transparent transparent white;
+	border-width: 30px 50px 30px 30px;
+	border-color: transparent white transparent transparent;
 	left: 0;
-	transform: translate(400%, -50%);
+	transform: translate(0%, 0%);
+	z-index: 3;
 }
 
 .arrow.right {
-	border-width: 20px 30px 20px 0;
-	border-color: transparent white transparent transparent;
+	border-width: 30px 30px 30px 50px;
+	border-color: transparent transparent transparent white;
 	right: 0;
-	transform: translate(-50%, -50%);
+	transform: translate(20%, 0%);
+	z-index: 3;
 }
