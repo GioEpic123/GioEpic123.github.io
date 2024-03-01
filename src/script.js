@@ -26,9 +26,6 @@ window.onload = function () {
 				sessionStorage.setItem("navbar", data);
 				navbarHTML = data;
 			});
-	} else {
-		console.log("Navbar already in session storage");
-		console.log(navbarHTML);
 	}
 
 	// Inject the navbar into the navbar div
@@ -119,6 +116,18 @@ if (p) {
 		sessionStorage.setItem("scrollingText", scrollingText);
 	}
 	p.innerHTML = scrollingText;
+}
+
+function scrollToLeft() {
+	console.log("Scrolling left");
+	var container = document.getElementById("project-content");
+	container.scrollLeft -= 200; // Adjust this value as needed
+}
+
+function scrollToRight() {
+	console.log("Scrolling right");
+	var container = document.getElementById("project-content");
+	container.scrollLeft += 200; // Adjust this value as needed
 }
 
 // --- Scroll Transition (WIP, needs additional scrollable content)

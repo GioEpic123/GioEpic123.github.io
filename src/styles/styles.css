@@ -360,6 +360,7 @@ main {
 
 	border-style: solid;
 	visibility: visible;
+	cursor: pointer;
 }
 
 .arrow.left {
@@ -369,9 +370,22 @@ main {
 	margin-right: 2%;
 }
 
+.arrow.left:hover {
+	border-color: transparent var(--primary-color) transparent transparent;
+}
+
 .arrow.right {
 	margin-left: 2%;
 	border-width: 30px 10px 30px 50px;
 	border-color: transparent transparent transparent white;
 	right: 0;
+}
+
+.arrow.right:hover {
+	border-color: transparent transparent transparent var(--primary-color);
+}
+
+.arrow-container {
+	width: 10%;
+	height: 10%;
 }
