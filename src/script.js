@@ -1,7 +1,10 @@
 // --- Page-Specific Logic
 
-var pages = ["home", "about", "projects", "experience", "contact"];
-var currentPage = findCurrentPage();
+const pages = ["home", "about", "projects", "experience", "contact"];
+const currentPage = findCurrentPage();
+const SCROLL_AMOUNT = 300;
+
+var projectContent = null; // Gets populated if we're on projects
 
 function findCurrentPage() {
 	var path = window.location.pathname;
@@ -11,6 +14,66 @@ function findCurrentPage() {
 		if (pageName === pages[i]) {
 			return i;
 		}
+	}
+}
+
+// Carousel Scrolling for Projects Page
+if (currentPage === 2) {
+	projectContent = document.getElementById("project-content");
+
+	// Get the arrow elements
+	var leftArrow = document.querySelector(".arrow.left");
+	var rightArrow = document.querySelector(".arrow.right");
+
+	// Hide arrows if there's no scrolling to be done
+	projectContent.addEventListener("scroll", function () {
+		console.log("Scrolling");
+		// Check if scroll is at start or end
+		if (isScrollAtStart()) {
+			console.log("Scroll is 0");
+			// Add hidden-arrow class to left arrow
+			leftArrow.classList.add("hidden-arrow");
+		} else {
+			// Remove hidden-arrow class from left arrow
+			leftArrow.classList.remove("hidden-arrow");
+		}
+
+		if (isScrollAtEnd()) {
+			// Add hidden-arrow class to right arrow
+			rightArrow.classList.add("hidden-arrow");
+		} else {
+			// Remove hidden-arrow class from right arrow
+			rightArrow.classList.remove("hidden-arrow");
+		}
+	});
+}
+// These only get hit on projects page
+function scrollCarouselLeft() {
+	console.log("Scrolling left");
+	projectContent.scrollLeft -= SCROLL_AMOUNT; // Adjust this value as needed
+
+	if (isScrollAtStart()) {
+		console.log("Scroll is 0");
+	}
+}
+
+function isScrollAtEnd() {
+	return (
+		projectContent.scrollLeft >=
+		projectContent.scrollWidth - projectContent.clientWidth
+	);
+}
+
+function isScrollAtStart() {
+	return projectContent.scrollLeft == 0;
+}
+
+function scrollCarouselRight() {
+	console.log("Scrolling right");
+	projectContent.scrollLeft += SCROLL_AMOUNT; // Adjust this value as needed
+
+	if (isScrollAtEnd()) {
+		console.log("Scroll is 100% done");
 	}
 }
 
@@ -116,18 +179,6 @@ if (p) {
 		sessionStorage.setItem("scrollingText", scrollingText);
 	}
 	p.innerHTML = scrollingText;
-}
-
-function scrollToLeft() {
-	console.log("Scrolling left");
-	var container = document.getElementById("project-content");
-	container.scrollLeft -= 200; // Adjust this value as needed
-}
-
-function scrollToRight() {
-	console.log("Scrolling right");
-	var container = document.getElementById("project-content");
-	container.scrollLeft += 200; // Adjust this value as needed
 }
 
 // --- Scroll Transition (WIP, needs additional scrollable content)

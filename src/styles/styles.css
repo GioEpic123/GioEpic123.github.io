@@ -280,6 +280,7 @@ main {
 
 /* Project carousel stays the same size regardless of elements.  */
 /* Can horizontally scroll to see remaining elements */
+/* Has arrows to help with scrolling & denote to users */
 #project-content {
 	display: flex;
 	overflow-x: auto;
@@ -350,6 +351,7 @@ main {
 	z-index: -3; /* put the pseudo-element behind the text */
 }
 
+/* Carousel Arrows */
 .arrow {
 	width: 0;
 	height: 0;
@@ -362,30 +364,27 @@ main {
 	visibility: visible;
 	cursor: pointer;
 }
-
 .arrow.left {
-	border-width: 30px 50px 30px 10px;
-	border-color: transparent white transparent transparent;
-	left: 0;
 	margin-right: 2%;
-}
+	left: 0;
 
+	border-width: 30px 50px 30px 10px;
+	border-color: transparent var(--off-white) transparent transparent;
+}
+.arrow.right {
+	margin-left: 2%;
+	right: 0.5%;
+
+	border-width: 30px 10px 30px 50px;
+	border-color: transparent transparent transparent var(--off-white);
+}
 .arrow.left:hover {
 	border-color: transparent var(--primary-color) transparent transparent;
 }
-
-.arrow.right {
-	margin-left: 2%;
-	border-width: 30px 10px 30px 50px;
-	border-color: transparent transparent transparent white;
-	right: 0;
-}
-
 .arrow.right:hover {
 	border-color: transparent transparent transparent var(--primary-color);
 }
-
-.arrow-container {
-	width: 10%;
-	height: 10%;
+/* Use JS to hide when not applicable */
+.hidden-arrow {
+	visibility: hidden;
 }
