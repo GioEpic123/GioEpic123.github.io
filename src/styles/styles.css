@@ -308,7 +308,7 @@ main {
 	max-width: 600px; /* Set a maximum width for each item */
 
 	padding: 10px; /* Add padding or any other styling as needed */
-	margin: 2% 5% 2% 0%;
+	margin: 2% 0% 2% 5%;
 	box-sizing: border-box; /* Include padding in the item's total width */
 	position: relative;
 
@@ -321,12 +321,17 @@ main {
 	z-index: 2;
 }
 
+#first-project {
+	margin-left: 0;
+}
+
 .project-box h3 {
 	text-align: center;
 	position: relative;
 
 	margin-right: 0;
 	padding: 1%;
+	padding-right: 0%;
 
 	font-size: 2.5rem;
 	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
@@ -345,34 +350,28 @@ main {
 	z-index: -3; /* put the pseudo-element behind the text */
 }
 
-#project-content .project-box:first-child {
-	margin-left: 5%;
-}
-
 .arrow {
 	width: 0;
 	height: 0;
 
 	position: sticky;
-	top: 50%;
-	z-index: 1;
+	top: 45%;
+	z-index: 3;
 
 	border-style: solid;
 	visibility: visible;
 }
 
 .arrow.left {
-	border-width: 30px 50px 30px 30px;
+	border-width: 30px 50px 30px 10px;
 	border-color: transparent white transparent transparent;
 	left: 0;
-	transform: translate(0%, 0%);
-	z-index: 3;
+	margin-right: 2%;
 }
 
 .arrow.right {
-	border-width: 30px 30px 30px 50px;
+	margin-left: 2%;
+	border-width: 30px 10px 30px 50px;
 	border-color: transparent transparent transparent white;
 	right: 0;
-	transform: translate(20%, 0%);
-	z-index: 3;
 }
