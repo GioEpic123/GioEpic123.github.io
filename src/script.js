@@ -27,34 +27,21 @@ if (currentPage === 2) {
 
 	// Hide arrows if there's no scrolling to be done
 	projectContent.addEventListener("scroll", function () {
-		console.log("Scrolling");
-		// Check if scroll is at start or end
 		if (isScrollAtStart()) {
-			console.log("Scroll is 0");
-			// Add hidden-arrow class to left arrow
 			leftArrow.classList.add("hidden-arrow");
 		} else {
-			// Remove hidden-arrow class from left arrow
 			leftArrow.classList.remove("hidden-arrow");
 		}
-
 		if (isScrollAtEnd()) {
-			// Add hidden-arrow class to right arrow
 			rightArrow.classList.add("hidden-arrow");
 		} else {
-			// Remove hidden-arrow class from right arrow
 			rightArrow.classList.remove("hidden-arrow");
 		}
 	});
 }
 // These only get hit on projects page
 function scrollCarouselLeft() {
-	console.log("Scrolling left");
-	projectContent.scrollLeft -= SCROLL_AMOUNT; // Adjust this value as needed
-
-	if (isScrollAtStart()) {
-		console.log("Scroll is 0");
-	}
+	projectContent.scrollLeft -= SCROLL_AMOUNT;
 }
 
 function isScrollAtEnd() {
@@ -70,11 +57,7 @@ function isScrollAtStart() {
 
 function scrollCarouselRight() {
 	console.log("Scrolling right");
-	projectContent.scrollLeft += SCROLL_AMOUNT; // Adjust this value as needed
-
-	if (isScrollAtEnd()) {
-		console.log("Scroll is 100% done");
-	}
+	projectContent.scrollLeft += SCROLL_AMOUNT;
 }
 
 // --- Navbar

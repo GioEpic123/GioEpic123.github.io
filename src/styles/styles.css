@@ -93,52 +93,6 @@ main {
 	color: var(--off-white);
 	padding-top: 5%;
 }
-/* -------------- Responsive Styles */
-@media screen and (min-width: 800px) {
-	h1 {
-		font-size: 9rem;
-	}
-
-	h3 {
-		font-size: 3rem;
-	}
-}
-
-@media screen and (min-width: 1024px) {
-	html {
-		font-size: 14px;
-	}
-
-	#navbar {
-		flex: 0 0 10%;
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	html {
-		font-size: 16px;
-	}
-
-	#name-container {
-		width: 65%;
-	}
-}
-
-@media screen and (min-width: 1700px) {
-	html {
-		font-size: 20px;
-	}
-
-	h3 {
-		font-size: 3.5rem;
-	}
-}
-
-@media screen and (min-width: 1900px) {
-	#name-container {
-		width: 55%;
-	}
-}
 
 /* -------------- Background text scroll */
 @keyframes scroll {
@@ -274,6 +228,11 @@ main {
 	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
 	line-height: 1.5; /* adds space between lines of text */
 	margin-bottom: 2em; /* adds space after the paragraph */
+
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
 }
 
 /* Projects Page */
@@ -286,8 +245,9 @@ main {
 	overflow-x: auto;
 
 	width: 80vw;
+	height: 75vh;
 
-	margin: 12% auto 0 auto;
+	margin: 8% auto 0 auto;
 	padding-top: 2%;
 	box-sizing: border-box;
 	z-index: 1;
@@ -303,48 +263,105 @@ main {
 	scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0);
 }
 
+/* Project Box */
+
 .project-box {
 	flex: 0 0 auto; /* Prevent items from growing and shrinking */
-	min-width: 350px; /* Set a minimum width for each item */
-	max-width: 600px; /* Set a maximum width for each item */
+	/* min-width: 300px;
+	max-width: 500px; */
+
+	min-width: 280px;
+	max-width: 500px;
+	min-height: 550px;
+	/* height: 65vh; */
 
 	padding: 10px; /* Add padding or any other styling as needed */
 	margin: 2% 0% 2% 5%;
-	box-sizing: border-box; /* Include padding in the item's total width */
-	position: relative;
 
-	height: 60vh;
+	/* Include padding in the item's total width */
+	box-sizing: border-box;
+	position: relative;
+	z-index: 2;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+
 	border: 10px solid var(--tertiary-color);
 	background-color: var(--secondary-color);
 	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
-	color: white;
-	font-size: 1.2rem;
-	z-index: 2;
 }
 
 #first-project {
 	margin-left: 0;
 }
 
+.project-box .image-container {
+	/* flex: 1; */
+	/* display: flex; */
+	align-items: center;
+	justify-content: center;
+	min-height: 150px;
+	/* overflow: hidden; This will ensure that the image doesn't overflow the div */
+}
+
+.project-box .image-container img {
+	box-sizing: border-box;
+	object-fit: contain;
+	width: 100%;
+	height: 99%;
+	border: 5px solid var(--primary-color);
+	box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.project-box p {
+	padding: 2%;
+
+	font-size: 1.5vh;
+	text-align: left;
+	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
+	line-height: 1.5; /* adds space between lines of text */
+	margin-bottom: 2em; /* adds space after the paragraph */
+}
+
 .project-box h3 {
 	text-align: center;
 	position: relative;
 
+	width: 100%;
+
 	margin-right: 0;
+	margin-bottom: 0;
+
 	padding: 1%;
 	padding-right: 0%;
 
-	font-size: 2.5rem;
-	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
+	font-size: 3rem;
+	text-shadow: 8px 4px 0 rgba(0, 0, 0, 0.5);
 	color: var(--off-white);
 }
 
+.project-link {
+	width: 100%;
+	color: var(--primary-color);
+
+	text-align: center;
+	font-size: 2rem;
+	font-family: "Anta", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+
+	text-shadow: 6px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Graphic on Tagline */
 .project-box h3::before {
 	content: "";
 	position: absolute;
 	top: 0;
-	left: 20%;
-	width: 60%;
+	left: 15%;
+	width: 55%;
 	height: 70%;
 	background-color: var(--primary-color-dark);
 	transform: skewX(-400deg); /* adjust this value to control the skew */
@@ -369,22 +386,73 @@ main {
 	left: 0;
 
 	border-width: 30px 50px 30px 10px;
-	border-color: transparent var(--off-white) transparent transparent;
+	border-color: transparent var(--primary-color) transparent transparent;
 }
 .arrow.right {
 	margin-left: 2%;
 	right: 0.5%;
 
 	border-width: 30px 10px 30px 50px;
-	border-color: transparent transparent transparent var(--off-white);
+	border-color: transparent transparent transparent var(--primary-color);
 }
 .arrow.left:hover {
-	border-color: transparent var(--primary-color) transparent transparent;
+	border-color: transparent var(--off-white) transparent transparent;
 }
 .arrow.right:hover {
-	border-color: transparent transparent transparent var(--primary-color);
+	border-color: transparent transparent transparent var(--off-white);
 }
 /* Use JS to hide when not applicable */
 .hidden-arrow {
 	visibility: hidden;
+}
+
+/* -------------- Responsive Styles */
+@media screen and (min-width: 800px) {
+	h1 {
+		font-size: 9rem;
+	}
+
+	h3 {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	html {
+		font-size: 14px;
+	}
+
+	#navbar {
+		flex: 0 0 10%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	html {
+		font-size: 16px;
+	}
+
+	#name-container {
+		width: 65%;
+	}
+}
+
+@media screen and (min-width: 1700px) {
+	html {
+		font-size: 18px;
+	}
+
+	h3 {
+		font-size: 3.5rem;
+	}
+}
+
+@media screen and (min-width: 1900px) {
+	html {
+		font-size: 20px;
+	}
+
+	#name-container {
+		width: 55%;
+	}
 }
