@@ -42,7 +42,7 @@ h2 {
 	top: 0;
 	right: 5%;
 	padding: 1%;
-	font-size: 5rem;
+	font-size: 4rem;
 	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
 	color: var(--off-white);
 	z-index: 1; /* ensure the h2 is above other content */
@@ -151,7 +151,7 @@ main {
 
 /* Custom name container with offset  */
 #name-container {
-	width: 80%;
+	width: 70%;
 	margin-right: 10%;
 	margin-left: auto; /* center the container */
 }
@@ -406,6 +406,35 @@ main {
 	visibility: hidden;
 }
 
+/* Experience Page */
+
+#resume-box {
+	width: 65vw;
+	height: 75vh;
+
+	margin: 8% auto 0 auto;
+	padding: 1% 5% 1% 5%;
+	box-sizing: border-box;
+
+	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
+	background-color: var(--minty-glass);
+	backdrop-filter: blur(10px);
+}
+
+#iframe-placeholder {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
+
 /* -------------- Responsive Styles */
 @media screen and (min-width: 800px) {
 	h1 {
@@ -433,7 +462,7 @@ main {
 	}
 
 	#name-container {
-		width: 65%;
+		width: 55%;
 	}
 }
 

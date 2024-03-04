@@ -51,12 +51,12 @@ nav ul li a:hover {
 }
 
 nav ul li::before {
-	top: 0; /* Position the line at the top */
+	bottom: 0; /* Position the line at the top */
 	content: "";
 	position: absolute;
 	left: 10%; /* Center the line */
 	width: 80%; /* Make the line take up 80% of the width */
-	border-top: 1.5px solid var(--off-white); /* Draw a line */
+	border-bottom: 1.5px solid var(--off-white); /* Draw a line */
 }
 
 #active-tab a {
