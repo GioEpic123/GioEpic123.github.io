@@ -1,0 +1,487 @@
+/* Local Variables */
+
+:root {
+	--primary-color: rgb(213, 105, 70);
+	--primary-color-dark: rgb(136, 58, 32);
+	--secondary-color: rgb(39, 40, 61);
+	--tertiary-color: rgb(103, 198, 144);
+	--off-white: rgb(244, 241, 224);
+	--minty-glass: rgba(0, 255, 72, 0.08);
+}
+
+/* Imported Fonts */
+
+.anta-regular {
+	font-family: "Anta", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+}
+
+.montserrat-subheading {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* --------- Default Overrides */
+
+html {
+	font-size: 12px; /* default font-size for document */
+}
+
+/* Title (Name) */
+h1 {
+	font-size: 8rem;
+	text-shadow: 10px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Sub-titles (Other Pages) */
+h2 {
+	position: fixed;
+	top: 0;
+	right: 5%;
+	padding: 1%;
+	font-size: 4rem;
+	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
+	color: var(--off-white);
+	z-index: 1; /* ensure the h2 is above other content */
+}
+
+h2::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+	height: 70%;
+	background-color: rgb(213, 105, 70);
+	transform: skewX(-400deg);
+	z-index: -1;
+}
+
+h3 {
+	font-size: 2.5rem;
+	margin-right: 10%;
+	margin-top: 5%;
+	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--secondary-color);
+	width: 100vw;
+	height: 100vh;
+}
+
+/* --------- Reusable Components */
+
+main {
+	display: flex;
+	height: 99vh;
+}
+
+#navbar {
+	flex: 0 0 15%; /* Don't grow, don't shrink, base width is 12.5% of the container */
+}
+
+#page-content {
+	flex: 1; /* Grow to take up the rest of the space */
+	text-align: right;
+	margin: auto;
+	color: var(--off-white);
+	padding-top: 5%;
+}
+
+/* -------------- Background text scroll */
+@keyframes scroll {
+	0% {
+		transform: translate(0%, -35%);
+	}
+	100% {
+		transform: translate(-10%, -40%);
+	}
+}
+
+#background-text {
+	display: block;
+	position: fixed;
+	width: 300%; /* Adjusted */
+	height: 300%; /* Adjusted */
+	overflow: hidden; /* Adjusted */
+	z-index: -10; /* Ensure the text is behind other content */
+	animation: scroll 30s linear infinite; /* Apply the scrolling animation */
+}
+
+#background-text p {
+	font-size: 3.5rem; /* Adjust as needed */
+	color: rgba(255, 255, 255, 0.041); /* Adjust as needed */
+}
+
+/* Background text Colors */
+
+.violet {
+	color: rgba(198, 22, 128, 0.15);
+}
+
+.blue {
+	color: rgba(75, 216, 255, 0.15);
+}
+
+.yellow {
+	color: rgba(255, 255, 213, 0.15);
+}
+
+.green {
+	color: rgba(0, 255, 72, 0.15);
+}
+
+.orange {
+	color: rgba(255, 165, 0, 0.15);
+}
+
+.purple {
+	color: rgba(128, 0, 128, 0.15);
+}
+
+/* -------------- Page-specific Styles */
+
+/* Home Page */
+
+/* Custom name container with offset  */
+#name-container {
+	width: 70%;
+	margin-right: 10%;
+	margin-left: auto; /* center the container */
+}
+
+#name-container h1:first-child {
+	text-align: left;
+	margin: 0;
+}
+#name-container h1:last-child {
+	text-align: right;
+	margin: 0;
+}
+
+/* Tagline */
+#tagline {
+	color: var(--tertiary-color);
+}
+
+/* About Page */
+
+#about-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#image-frame {
+	display: flex;
+	flex: none;
+	justify-content: center;
+	align-items: center;
+
+	/* Square frame, overlapping text box */
+	width: 30vw;
+	height: 30vw;
+	max-width: 600px;
+	max-height: 600px;
+	/* margin-left: 5%; */
+	position: relative;
+	right: -5%; /* add this line to move the image to the right */
+	margin-top: -15%;
+	z-index: 1; /* add this line to make the image overlap the text box */
+
+	border: 20px solid var(--primary-color);
+	overflow: hidden;
+	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+#image-frame img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 31%;
+}
+
+#about-text {
+	flex: 4;
+	border: 10px solid var(--tertiary-color);
+	background-color: var(--secondary-color);
+	color: white;
+	font-size: 1.2rem;
+	margin-right: 5%;
+	margin-top: 5%;
+	padding: 5%;
+	padding-left: 8%;
+	padding-bottom: 0;
+	position: relative;
+	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
+	/* Red inset border: inset 0 0 0 5px var(--primary-color); */
+}
+
+#about-text p {
+	text-align: left;
+	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
+	line-height: 1.5; /* adds space between lines of text */
+	margin-bottom: 2em; /* adds space after the paragraph */
+
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* Projects Page */
+
+/* Project carousel stays the same size regardless of elements.  */
+/* Can horizontally scroll to see remaining elements */
+/* Has arrows to help with scrolling & denote to users */
+#project-content {
+	display: flex;
+	overflow-x: auto;
+
+	width: 80vw;
+	height: 75vh;
+
+	margin: 8% auto 0 auto;
+	padding-top: 2%;
+	box-sizing: border-box;
+	z-index: 1;
+
+	/* TODO: Decide on these items (need to adjust z index to work) */
+	/* border: 2px solid var(--off-white); */
+	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
+	background-color: var(--minty-glass);
+	backdrop-filter: blur(10px);
+
+	/* Scrollbar */
+	scrollbar-width: auto;
+	scrollbar-color: var(--primary-color) rgba(0, 0, 0, 0);
+}
+
+/* Project Box */
+
+.project-box {
+	flex: 0 0 auto; /* Prevent items from growing and shrinking */
+	/* min-width: 300px;
+	max-width: 500px; */
+
+	min-width: 280px;
+	max-width: 500px;
+	min-height: 550px;
+	/* height: 65vh; */
+
+	padding: 10px; /* Add padding or any other styling as needed */
+	margin: 2% 0% 2% 5%;
+
+	/* Include padding in the item's total width */
+	box-sizing: border-box;
+	position: relative;
+	z-index: 2;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+
+	border: 10px solid var(--tertiary-color);
+	background-color: var(--secondary-color);
+	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+#first-project {
+	margin-left: 0;
+}
+
+.project-box .image-container {
+	/* flex: 1; */
+	/* display: flex; */
+	align-items: center;
+	justify-content: center;
+	min-height: 150px;
+	/* overflow: hidden; This will ensure that the image doesn't overflow the div */
+}
+
+.project-box .image-container img {
+	box-sizing: border-box;
+	object-fit: contain;
+	width: 100%;
+	height: 99%;
+	border: 5px solid var(--primary-color);
+	box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.project-box p {
+	padding: 2%;
+
+	font-size: 1.5vh;
+	text-align: left;
+	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
+	line-height: 1.5; /* adds space between lines of text */
+	margin-bottom: 2em; /* adds space after the paragraph */
+}
+
+.project-box h3 {
+	text-align: center;
+	position: relative;
+
+	width: 100%;
+
+	margin-right: 0;
+	margin-bottom: 0;
+
+	padding: 1%;
+	padding-right: 0%;
+
+	font-size: 3rem;
+	text-shadow: 8px 4px 0 rgba(0, 0, 0, 0.5);
+	color: var(--off-white);
+}
+
+.project-link {
+	width: 100%;
+	color: var(--primary-color);
+
+	text-align: center;
+	font-size: 2rem;
+	font-family: "Anta", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+
+	text-shadow: 6px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Graphic on Tagline */
+.project-box h3::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 15%;
+	width: 55%;
+	height: 70%;
+	background-color: var(--primary-color-dark);
+	transform: skewX(-400deg); /* adjust this value to control the skew */
+	z-index: -3; /* put the pseudo-element behind the text */
+}
+
+/* Carousel Arrows */
+.arrow {
+	width: 0;
+	height: 0;
+
+	position: sticky;
+	top: 45%;
+	z-index: 3;
+
+	border-style: solid;
+	visibility: visible;
+	cursor: pointer;
+}
+.arrow.left {
+	margin-right: 2%;
+	left: 0;
+
+	border-width: 30px 50px 30px 10px;
+	border-color: transparent var(--primary-color) transparent transparent;
+}
+.arrow.right {
+	margin-left: 2%;
+	right: 0.5%;
+
+	border-width: 30px 10px 30px 50px;
+	border-color: transparent transparent transparent var(--primary-color);
+}
+.arrow.left:hover {
+	border-color: transparent var(--off-white) transparent transparent;
+}
+.arrow.right:hover {
+	border-color: transparent transparent transparent var(--off-white);
+}
+/* Use JS to hide when not applicable */
+.hidden-arrow {
+	visibility: hidden;
+}
+
+/* Experience Page */
+
+#resume-box {
+	width: 65vw;
+	height: 75vh;
+
+	margin: 8% auto 0 auto;
+	padding: 1% 5% 1% 5%;
+	box-sizing: border-box;
+
+	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
+	background-color: var(--minty-glass);
+	backdrop-filter: blur(10px);
+}
+
+#iframe-placeholder {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
+
+/* -------------- Responsive Styles */
+@media screen and (min-width: 800px) {
+	h1 {
+		font-size: 9rem;
+	}
+
+	h3 {
+		font-size: 3rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	html {
+		font-size: 14px;
+	}
+
+	#navbar {
+		flex: 0 0 10%;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	html {
+		font-size: 16px;
+	}
+
+	#name-container {
+		width: 55%;
+	}
+}
+
+@media screen and (min-width: 1700px) {
+	html {
+		font-size: 18px;
+	}
+
+	h3 {
+		font-size: 3.5rem;
+	}
+}
+
+@media screen and (min-width: 1900px) {
+	html {
+		font-size: 20px;
+	}
+
+	#name-container {
+		width: 55%;
+	}
+}
