@@ -1,7 +1,13 @@
 nav {
 	width: 15%;
 	height: 100vh;
-	position: fixed; /* sticks to the top */
+	/* sticks to the top */
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+
 	background-color: var(--minty-glass);
 	backdrop-filter: blur(10px);
 	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
@@ -11,22 +17,25 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	margin-top: 100%;
-	height: 60%;
-	display: flex; /* flex container */
+	/* Add this is we're not using top initials */
+	/* padding-top: 80%; */
+	height: 50%;
+	width: 100%;
+
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
 nav ul li {
 	text-align: center; /* Center the text */
-	margin-left: 0;
 	position: relative; /* Needed for pseudo-element */
 }
 
 /* Horizontal lines between buttons */
 nav ul li {
 	box-sizing: border-box; /* Include the border in the element's total width and height */
+	border-right: 5px solid transparent; /* Add a transparent border */
 }
 
 nav ul li a {
@@ -35,19 +44,16 @@ nav ul li a {
 	text-decoration: none;
 	font-size: 1.2rem;
 	padding: 20%; /* Move padding from li to a */
-}
-
-nav ul li {
-	border-right: 5px solid transparent; /* Add a transparent border */
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 nav ul li:hover {
 	background-color: rgba(0, 255, 145, 0.3);
-	/* border-right-color: var(--off-white); */
 }
 
 nav ul li a:hover {
 	color: var(--secondary-color);
+	text-shadow: none;
 }
 
 nav ul li::before {
@@ -101,6 +107,7 @@ nav ul li::before {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 100%;
 }
 
 .pyramid-block {
@@ -122,7 +129,7 @@ nav ul li::before {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	overflow: hidden;
+	overflow: visible;
 	padding: 0;
 }
 
@@ -130,4 +137,43 @@ nav ul li::before {
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
+	filter: drop-shadow(4px 4px 0px black); /* Adjust as needed */
+}
+
+/* Experimental - Initial Box */
+
+#initial-box {
+	display: flex;
+	width: 80%;
+	height: 10%;
+	align-items: center;
+	position: relative;
+}
+
+#initial-G,
+#initial-Q {
+	position: absolute;
+
+	padding: 0;
+	margin: 0;
+
+	font-size: 6rem;
+	font-weight: bold;
+	font-family: "Anta", sans-serif;
+	font-weight: 1000;
+	font-style: normal;
+
+	color: var(--off-white);
+	text-shadow: 6px 4px 1px rgba(0, 0, 0, 0.8);
+}
+
+#initial-G {
+	left: 5px;
+	bottom: 5px;
+}
+
+#initial-Q {
+	right: 5px;
+	top: 5px;
+	z-index: -1;
 }

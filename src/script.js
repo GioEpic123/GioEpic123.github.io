@@ -11,7 +11,10 @@ const resumeViewLink =
 
 var projectContent = null; // Gets populated if we're on projects
 
-// Main ONLoad
+/**
+ * Main onLoad
+ * - Handles generation of dynamuc objects
+ */
 window.onload = function () {
 	generateNavbar();
 	if (currentPage === 3) {
@@ -34,6 +37,8 @@ function findCurrentPage() {
 
 // --- Projects
 
+// Dynamic Carousel
+// Any objects in projects (Conforming to this structure) will be added to the carousel
 const projects = [
 	{
 		title: "Hampage",
@@ -59,22 +64,26 @@ const projects = [
 		link: "https://gio-epic123.itch.io/turret-trouble",
 		linkText: "To My itch.io Page!",
 	},
-	{
-		title: "Text",
-		imgSrc: "../assets/profilePic.jpg",
-		description: "Project Details Here",
-		link: "https://gioepic123.github.io/",
-		linkText: "To Website!",
-	},
+	// {
+	// 	title: "Text",
+	// 	imgSrc: "../assets/profilePic.jpg",
+	// 	description: "Project Details Here",
+	// 	link: "https://gioepic123.github.io/",
+	// 	linkText: "To Website!",
+	// },
 ];
 
 function populateProjects() {
 	populateProjectContent();
-	const rightArrow = document.querySelector(".right-arrow");
-
+	const rightArrow = document.querySelector(".arrow.right");
+	var firstProjectDone = false;
 	projects.forEach((project) => {
 		const projectBox = document.createElement("div");
 		projectBox.className = "project-box";
+		if (!firstProjectDone) {
+			firstProjectDone = true;
+			projectBox.id = "first-project";
+		}
 
 		projectBox.innerHTML = `
             <h3 class="montserrat-subheading">${project.title}</h3>
@@ -124,10 +133,9 @@ function scrollCarouselLeft() {
 }
 
 function isScrollAtEnd() {
-	return (
-		projectContent.scrollLeft >=
-		projectContent.scrollWidth - projectContent.clientWidth
-	);
+	const possibleScroll =
+		projectContent.scrollWidth - projectContent.clientWidth;
+	return projectContent.scrollLeft >= possibleScroll - 1;
 }
 
 function isScrollAtStart() {
@@ -135,11 +143,14 @@ function isScrollAtStart() {
 }
 
 function scrollCarouselRight() {
-	console.log("Scrolling right");
 	projectContent.scrollLeft += SCROLL_AMOUNT;
 }
 
 // --- Navbar
+
+/**
+ * Inject Navbar from navbar.html
+ */
 function generateNavbar() {
 	var navbar = document.getElementById("navbar");
 
@@ -149,14 +160,18 @@ function generateNavbar() {
 			.then((response) => response.text())
 			.then((data) => {
 				sessionStorage.setItem("navbar", data);
-				navbarHTML = data;
+				navbar.innerHTML = data;
 			});
+	} else {
+		navbar.innerHTML = navbarHTML;
+		setActiveTab();
 	}
+}
 
-	// Inject the navbar into the navbar div
-	navbar.innerHTML = navbarHTML;
-
-	// Set active tab to the navbar
+/**
+ * Add active tab highlight for current page in navbar
+ */
+function setActiveTab() {
 	// Remove old active tab
 	var previousActiveTab = document.getElementById("active-tab");
 	if (previousActiveTab) {
