@@ -1,5 +1,5 @@
 # Portfolio Site
-## Style - MintyGlass
+### Version 2.0 - MintyGlass!
 
 Thanks for visiting my personal website!
 
@@ -13,3 +13,12 @@ And much more!
 
 Very excited for the chance to work on one of these again, and I'm especially happy for how far we've come!
 Lets make great things!
+
+
+### ...In the next version:
+[] - Fixing Resposiveness for mobile
+[] - Cleaning up dead code & optimizing (pre-fetching, more dunamicizing)
+[] - Enhancing multi-browser support (some effects don't load on safari)
+
+Even Later:
+[] -- Adding FUN tab ;)
