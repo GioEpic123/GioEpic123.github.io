@@ -21,4 +21,4 @@ Lets make great things!
 - Enhancing multi-browser support 
 
 Even Later:
-[] -- Adding FUN tab ;)
+- Adding Fun Tab ;)
