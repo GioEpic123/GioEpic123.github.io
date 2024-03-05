@@ -16,9 +16,9 @@ Lets make great things!
 
 
 ### ...In the next version:
-[] - Fixing Resposiveness for mobile
-[] - Cleaning up dead code & optimizing (pre-fetching, more dunamicizing)
-[] - Enhancing multi-browser support (some effects don't load on safari)
+- Fixing Resposiveness for mobile
+- Cleaning up dead code & optimizing (pre-fetching, more dynamic stuff)
+- Enhancing multi-browser support 
 
 Even Later:
 [] -- Adding FUN tab ;)
