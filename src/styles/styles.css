@@ -7,6 +7,9 @@
 	--tertiary-color: rgb(103, 198, 144);
 	--off-white: rgb(244, 241, 224);
 	--minty-glass: rgba(0, 255, 72, 0.08);
+
+	--glass-outline: 0px 0px 0px 1px rgba(255, 255, 255, 0.25);
+	--glass-blur: blur(5px);
 }
 
 /* Imported Fonts */
@@ -32,8 +35,33 @@ html {
 
 /* Title (Name) */
 h1 {
-	font-size: 8rem;
+	font-size: 6rem;
 	text-shadow: 10px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+	font-size: 2rem;
+	margin-right: 10%;
+	margin-top: 5%;
+	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
+	z-index: 5;
+}
+
+/* --------- Reusable Components */
+
+main {
+	display: flex;
+	height: 99vh;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--secondary-color);
+	width: 100vw;
+	height: 100vh;
+
+	overflow: hidden;
 }
 
 /* Sub-titles (Other Pages) */
@@ -58,28 +86,6 @@ h2::before {
 	background-color: rgb(213, 105, 70);
 	transform: skewX(-400deg);
 	z-index: -1;
-}
-
-h3 {
-	font-size: 2.5rem;
-	margin-right: 10%;
-	margin-top: 5%;
-	text-shadow: 8px 4px 1px rgba(0, 0, 0, 0.5);
-}
-
-body {
-	margin: 0;
-	padding: 0;
-	background-color: var(--secondary-color);
-	width: 100vw;
-	height: 100vh;
-}
-
-/* --------- Reusable Components */
-
-main {
-	display: flex;
-	height: 99vh;
 }
 
 #navbar {
@@ -220,7 +226,6 @@ main {
 	padding-bottom: 0;
 	position: relative;
 	box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
-	/* Red inset border: inset 0 0 0 5px var(--primary-color); */
 }
 
 #about-text p {
@@ -254,9 +259,10 @@ main {
 
 	/* TODO: Decide on these items (need to adjust z index to work) */
 	/* border: 2px solid var(--off-white); */
-	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
+	box-shadow: var(--glass-outline);
 	background-color: var(--minty-glass);
-	backdrop-filter: blur(10px);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
 
 	/* Scrollbar */
 	scrollbar-width: auto;
@@ -298,12 +304,9 @@ main {
 }
 
 .project-box .image-container {
-	/* flex: 1; */
-	/* display: flex; */
 	align-items: center;
 	justify-content: center;
 	min-height: 150px;
-	/* overflow: hidden; This will ensure that the image doesn't overflow the div */
 }
 
 .project-box .image-container img {
@@ -320,9 +323,9 @@ main {
 
 	font-size: 1.5vh;
 	text-align: left;
-	text-indent: 2em; /* adds a tab-like space at the beginning of the first line */
-	line-height: 1.5; /* adds space between lines of text */
-	margin-bottom: 2em; /* adds space after the paragraph */
+	text-indent: 2em;
+	line-height: 1.5;
+	margin-bottom: 2em;
 }
 
 .project-box h3 {
@@ -352,7 +355,7 @@ main {
 	font-weight: 1000;
 	font-style: normal;
 
-	text-shadow: 6px 2px 0 rgba(0, 0, 0, 0.5);
+	text-shadow: 4px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 /* Graphic on Tagline */
@@ -416,9 +419,10 @@ main {
 	padding: 1% 5% 1% 5%;
 	box-sizing: border-box;
 
-	box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.25);
+	box-shadow: var(--glass-outline);
 	background-color: var(--minty-glass);
-	backdrop-filter: blur(10px);
+	backdrop-filter: var(--glass-blur);
+	-webkit-backdrop-filter: var(--glass-blur);
 }
 
 #iframe-placeholder {
@@ -483,5 +487,120 @@ iframe {
 
 	#name-container {
 		width: 55%;
+	}
+}
+
+/* -------------- Mobile-responsive styles */
+
+@media screen and (max-width: 800px) {
+	h2 {
+		top: 8%;
+	}
+
+	#image-frame {
+		width: 30vw;
+		height: 30vw;
+		position: fixed;
+		left: 2%;
+		top: 20vh;
+
+		border: 10px solid var(--primary-color);
+		box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.5);
+	}
+
+	#about-text {
+		margin: 5%;
+
+		font-size: 1.5rem;
+		top: 70px;
+		margin-top: 10%;
+		padding: 5%;
+		padding-left: 8%;
+		padding-bottom: 0;
+		position: relative;
+		box-shadow: 20px 10px 1px rgba(0, 0, 0, 0.5);
+		border: 5px solid var(--tertiary-color);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	main {
+		display: flex;
+		height: 90vh;
+	}
+
+	#navbar {
+		flex: 0 0 0;
+	}
+
+	#page-content {
+		margin-top: 30%;
+		height: 60vh;
+		margin-bottom: 0;
+	}
+
+	#image-frame {
+		width: 40vw;
+		height: 40vw;
+		top: 19vh;
+	}
+
+	#about-text {
+		overflow-y: scroll;
+		height: 50vh; /* Adjust this value according to your needs */
+	}
+
+	#project-content {
+		flex-direction: column;
+		align-items: center;
+		overflow-x: hidden;
+
+		width: 95vw;
+		height: 65vh;
+
+		margin: 8% auto 0 auto;
+		background-color: transparent;
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+		box-shadow: none;
+	}
+
+	/* Projects */
+
+	.project-box {
+		padding: 10px;
+		margin: 0;
+		margin-bottom: 4%;
+		margin-left: 2%;
+		margin-right: 2%;
+
+		border: 8px solid var(--tertiary-color);
+	}
+
+	#first-project {
+		margin-top: 2%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.arrow {
+		display: none;
+	}
+
+	#resume-box {
+		width: 95vw;
+		height: 65vh;
+		padding: 0%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	html {
+		font-size: 8px;
+	}
+
+	h2 {
+		top: 8%;
+		text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
 	}
 }
