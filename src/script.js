@@ -161,6 +161,7 @@ function generateNavbar() {
 			.then((data) => {
 				sessionStorage.setItem("navbar", data);
 				navbar.innerHTML = data;
+				setActiveTab();
 			});
 	} else {
 		navbar.innerHTML = navbarHTML;

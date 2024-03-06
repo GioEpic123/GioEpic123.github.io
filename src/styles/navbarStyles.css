@@ -215,16 +215,12 @@ nav ul li::before {
 	}
 
 	nav ul li a {
-		display: block; /* Make the a tag a block-level element */
-
-		padding: 0;
-		/* padding-top: 12px;
-		padding-bottom: 15px; */
-
-		text-decoration: none;
+		padding-bottom: 100%;
+		padding-top: 100%;
+		padding-left: 40%;
+		padding-right: 40%;
 		font-size: 1.2rem;
 		text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
-		color: rgb(255, 255, 255);
 	}
 
 	nav ul li::before {
