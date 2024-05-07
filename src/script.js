@@ -6,8 +6,9 @@
 const pages = ["home", "about", "projects", "experience"];
 const currentPage = findCurrentPage();
 const SCROLL_AMOUNT = 300;
+// Note: Change "../view" to "../preview" or it wont work with the resume viewer
 const resumeViewLink =
-	"https://drive.google.com/file/d/1cxO9GD8y-7YGmOcxq1myLx6GI6WkZ7RR/preview";
+	"https://drive.google.com/file/d/1yhMm0Pq7bLxFdZC7_Ut189c28bAzRrb-/preview";
 
 var projectContent = null; // Gets populated if we're on projects
 
